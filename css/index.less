@@ -1,0 +1,296 @@
+//! css初始化
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; //css3盒模型
+}
+
+li {
+    list-style: none;
+}
+
+// todo 声明字体
+@font-face {
+    font-family: electronicFont;
+    src: url(../font/DS-DIGIT.TTF);
+}
+
+body {
+    min-width: 1024px;
+    background: url(../images/下载.jfif) no-repeat top center;
+    line-height: 1.15;
+}
+
+header {
+    height: 1.25rem; //100px
+    background: url(../images/下载.png) no-repeat;
+    background-size: 100% 100%; //横向缩放
+    position: relative;
+
+    h1 {
+        color: #ffffff;
+        font-size: .475rem;
+        text-align: center;
+        line-height: 1rem;
+    }
+
+    .showTime {
+        position: absolute;
+        right: 0.375rem;
+        top: 0;
+        line-height: .9375rem; //75px
+        color: rgba(255, 255, 255, 0.7); //(red,green,blue,透明度)
+        font-size: .25rem; //20px
+    }
+}
+
+//fyj 页面的主体部分
+.mainbox {
+    min-width: 1024px;
+    max-width: 1920px;
+    // background-color: pink;
+    margin: 0 auto; //居中显示
+    padding: .125rem .125rem 0; //内边距指的是大的div盒子中的元素与这个div的边距
+    display: flex; //flex布局的主轴默认是x轴 
+
+    .column {
+        flex: 3;
+
+        &:nth-child(2) {
+            //todo伪类？伪元素
+            flex: 5;
+            margin: 0 .125rem .1875rem;
+            overflow: hidden;
+        }
+    }
+
+    .panel {
+        height: 3.875rem; //380px
+        position: relative;
+        // background-color: pink;
+        border: 1px solid rgba(3, 134, 95, 0.17);
+        background: url(../images/line.png) rgba(255, 255, 255, 0.04);
+        padding: 0 .1875rem .5rem; //15px 40px
+        margin-bottom: .5rem;
+
+        &::before {
+            //父亲的伪元素 before是在元素之前插入新的东西  after是在元素之后插入新的东西
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid #02a6b5;
+            border-top: 2px solid #02a6b5;
+        }
+
+        &::after {
+            //父亲的伪元素 before是在元素之前插入新的东西  after是在元素之后插入新的东西
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #02a6b5;
+            border-top: 2px solid #02a6b5;
+        }
+
+        .panel_footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+            &::before {
+                //父亲的伪元素 before是在元素之前插入新的东西  after是在元素之后插入新的东西
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 10px;
+                height: 10px;
+                border-left: 2px solid #02a6b5;
+                border-bottom: 2px solid #02a6b5;
+            }
+
+            &::after {
+                //父亲的伪元素 before是在元素之前插入新的东西  after是在元素之后插入新的东西
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 10px;
+                height: 10px;
+                border-right: 2px solid #02a6b5;
+                border-bottom: 2px solid #02a6b5;
+            }
+        }
+
+        h2 {
+            height: .6rem;
+            color: #fff;
+            line-height: .6rem;
+            text-align: center;
+            font-size: .25rem;
+            font-weight: 400;
+            a{
+                color: #fff;
+                text-decoration: none;
+                margin: 0 .125rem;
+            }
+        }
+
+        .chart {
+            height: 3rem;
+            // background-color: pink;
+        }
+    }
+}
+
+// no 数字模块
+.no {
+    background-color: rgba(101, 132, 226, 0.1);
+    padding: .1875rem;
+
+    .no-hd {
+        position: relative;
+        border: 1px solid rgba(25, 86, 39, 0.17);
+
+        ul {
+            display: flex;
+
+            li {
+                flex: 1;
+                position: relative;
+                line-height: 1rem;
+                font-size: .875rem;
+                color: #ffeb7b;
+                text-align: center;
+                font-family: 'electronicFont';
+
+                &::after {
+                    content: "";
+                    top: 25%;
+                    height: 50%;
+                    right: 0;
+                    position: absolute; //子绝父相
+                    width: 1px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            width: .375rem;
+            height: 10px;
+            border-top: 2px solid #02a6b5;
+            border-left: 2px solid #02a6b5;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            content: "";
+            width: .375rem;
+            height: 10px;
+            border-bottom: 2px solid #02a6b5;
+            border-right: 2px solid #02a6b5;
+        }
+    }
+
+    .no-bd {
+        ul{
+            display: flex;
+            li{
+                flex:1;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.225rem;//18px
+                height: .5rem;
+                line-height: .5rem;
+                padding: .125rem;
+            }
+        }
+    }
+}
+.map{
+    height: 10.125rem;
+    position: relative;
+    .map1{
+        width: 6.475rem;
+        height: 6.475rem;
+        position: absolute;
+        background: url(../images/下载\ \(1\).png);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0.3;
+        background-size: 100% 100%; //缩放
+    }
+    .map2{
+        width: 8.0375rem;
+        height: 8.0375rem;
+        position: absolute;
+        background: url(../images/下载\ \(2\).png);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        animation: rotate1 15s linear infinite;
+        opacity: 0.6;
+        background-size: 100% 100%; //缩放
+    }
+    @keyframes rotate1 {
+        from{
+            transform: translate(-50%,-50%) rotate(0deg);
+        }
+        to{
+            transform: translate(-50%,-50%) rotate(360deg);
+        }
+    }
+    .map3{
+        width: 7.075rem;
+        height: 7.075rem;
+        position: absolute;
+        background: url(../images/下载\ \(3\).png);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        animation: rotate2 10s linear infinite;
+        opacity: 0.6;
+        background-size: 100% 100%; //缩放
+    }
+    @keyframes rotate2 {
+        from{
+            transform: translate(-50%,-50%) rotate(0deg);
+        }
+        to{
+            transform: translate(-50%,-50%) rotate(-360deg);
+        }
+    }
+    .chart{
+        width: 100%;
+        height: 10.125rem;
+        position: absolute;
+        top: 0;
+        left:0;
+        // background-color: pink;
+    }
+}
+/* 约束屏幕尺寸 */
+@media screen and (max-width: 1024px) {
+    html {
+      font-size: 42px !important;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+    html {
+      font-size: 80px !important;
+    }
+  }
